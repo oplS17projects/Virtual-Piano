@@ -1,6 +1,6 @@
 # Virtual-Piano
 
-## tl;dr
+## MEMES
 
 1. Create a repository in [our organization][oplorg] for your project; add your teammate(s) as collaborators
 2. Copy-paste this [template file](template.md) as the `README.md` file in your new repo; edit to become project plan

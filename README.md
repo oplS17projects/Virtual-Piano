@@ -1,91 +1,101 @@
-# Virtual-Piano
+# Virtual Piano
 
-## MEMES
+### Statement
+Describe your project. Why is it interesting? Why is it interesting to you personally? What do you hope to learn? 
 
-1. Create a repository in [our organization][oplorg] for your project; add your teammate(s) as collaborators
-2. Copy-paste this [template file](template.md) as the `README.md` file in your new repo; edit to become project plan
-3. Make 3-slide slide show to be presented in class; insert into [class desk][gslides]
-4. Enter project details into a new [Google form][projform]
-5. Make a 0.1 release of your project (tagging `@fgmart`)
+### Analysis
+Explain what approaches from class you will bring to bear on the project.
 
-## Due Date
-* Sun Apr 2, 2017 at 11p
+Be explicit about the techiques from the class that you will use. For example:
 
-## Instructions
+- Will you use data abstraction? How?
+- Will you use recursion? How?
+- Will you use map/filter/reduce? How? 
+- Will you use object-orientation? How?
+- Will you use functional approaches to processing your data? How?
+- Will you use state-modification approaches? How? (If so, this should be encapsulated within objects. `set!` pretty much should only exist inside an object.)
+- Will you build an expression evaluator, like we did in the symbolic differentatior and the metacircular evaluator?
+- Will you use lazy evaluation approaches?
 
-Teams will submit a single proposal, with sections that each member has done individually detailing their proposed contributions. The submission will be the `README.md` file in your brand-new project repository, which you'll make. 
+The idea here is to identify what ideas from the class you will use in carrying out your project. 
 
-You must start using GitHub collaboratively from this point forward. 
+**Your project will be graded, in part, by the extent to which you adopt approaches from the course into your implementation, _and_ your discussion about this.**
 
-Instructions: 
+### External Technologies
+You are encouraged to develop a project that connects to external systems. For example, this includes systems that:
 
-1. Create a new repository for your project as part of [our organization][oplorg]
-  * Give it a name that you like—it may be your real names, usernames, or project name
-  * Add your teammates as collaborators (Settings > Collaborators & Teams > Add Collaborator)
-2. Copy the content from the [template file](template.md) into your `README.md`
-  * Click the “Raw” button on the `template.md` file and then copy-paste into your repo's `README.md` edit view
-  * Save it
-  * *Then start editing it to become your actual proposal*
-3. Everyone on the team contributes their sections to your `README.md` file.
-  * Use GitHub's collaboration features to make sure that each team member contributes meaningful content to the file
-  * At the absolute minimum, respective team members must have commits that show they have authored the section describing their planned contributions
-4. Create a [github Release](https://help.github.com/articles/creating-releases/) of your repository. 
- * Version: v0.1
- * Title: Proposal
- * Description: tag `@fgmart`
+- retrieve information or publish data to the web
+- generate or process sound
+- control robots or other physical systems
+- interact with databases
 
-And now some detail on what to write _in_ the report.
+If your project will do anything in this category (not only the things listed above!), include this section and discuss.
 
-**Overall guidance:** *You should be proposing something that you have high confidence that you can achieve, and the proposal should project that confidence.*
+### Data Sets or other Source Materials
+If you will be working with existing data, where will you get those data from? (Dowload from a website? Access in a database? Create in a simulation you will build? ...)
 
-The proposal should be no longer than necessary, but long enough to include critical detail. Diagrams are welcome. 
+How will you convert your data into a form usable for your project?  
 
-Remember, you can do some neat [formatting things with Markdown.][markdown]
+If you are pulling data from somewhere, actually go download it and look at it before writing the proposal. Explain in some detail what your plan is for accomplishing the necessary processing.
 
-In case you missed it, here again is the [template file](template.md)
+If you are using some other starting materials, explain what they are. Basically: anything you plan to use that isn't code.
 
-## In-Class Presentation 
-Teams will each deliver an in-class presentation. Your team will have two minutes to present.
+### Deliverable and Demonstration
+Explain exactly what you'll have at the end. What will it be able to do at the live demo?
 
-The presentation shall have exactly three slides:
+What exactly will you produce at the end of the project? A piece of software, yes, but what will it do? Here are some questions to think about (and answer depending on your application).
 
-1. Title
-  * project title (10 words or fewer)
-  * your real names
-  * each real name followed by GitHub username
-  * a relevant image of some sort (optional)
-2. Overview
-  * a few short phrases describing the project
-  * a different relevant image (optional)
-3. Architecture Diagram 
-  * visual diagram showing the major components of the project
-  * include external things that your project will connect to
-  * include arrows showing flow of information
-  * internal components annotated with Racket libraries that they will use
-  * _important:_ annotate each block with the GH username of the person who is primarily responsible for its creation
+Will it run on some data, like batch mode? Will you present some analytical results of the processing? How can it be re-run on different source data?
 
-Make the slides in [Google Slides][gslides].
+Will it be interactive? Can you show it working? This project involves a live demo, so interactivity is good.
 
-Then, import your deck into the [slide deck][martinslides]. You have write privileges based on your membership in the class forum.
+### Evaluation of Results
+How will you know if you are successful? 
+If you include some kind of _quantitative analysis,_ that would be good.
 
-You and your teammates will give the presentation in class the day that this assignment is due.
+## Architecture Diagram
+Upload the architecture diagram you made for your slide presentation to your repository, and include it in-line here.
 
-## Fill out Project Information Form
+Create several paragraphs of narrative to explain the pieces and how they interoperate.
 
-Enter project details into a new [Google form][projform].
+## Schedule
+Explain how you will go from proposal to finished product. 
 
-**This is absolutely necessary so I can keep track of all of the projects.**
+There are three deliverable milestones to explicitly define, below.
 
-## Grading
-The proposal must be submitted on time to receive credit. Late submissions will not be accepted for credit.
+The nature of deliverables depend on your project, but may include things like processed data ready for import, core algorithms implemented, interface design prototyped, etc. 
 
-You personally must be present in class (and participate in the presentation when it is your turn) to receive credit for the presentation. If your teammates are there and you are not, they will receive presentation credit and you will not.
+You will be expected to turn in code, documentation, and data (as appropriate) at each of these stages.
 
+Write concrete steps for your schedule to move from concept to working system. 
 
-<!-- Links -->
-[forum]: https://groups.google.com/forum/#!forum/uml-opl-spr17
-[markdown]: https://help.github.com/articles/markdown-basics/
-[gslides]:https://slides.google.com
-[martinslides]:https://docs.google.com/presentation/d/1fzNX4nV4z6IkLiVBMB0YD4CctlJxR9pWXSbYTOFcQvc
-[projform]:https://goo.gl/forms/Gfh9hWBgvg323j6M2
-[oplorg]:https://github.com/oplS17projects/
+### First Milestone (Sun Apr 9)
+Which portion of the work will be completed (and committed to Github) by this day? 
+
+### Second Milestone (Sun Apr 16)
+Which portion of the work will be completed (and committed to Github) by this day?  
+
+### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
+What additionally will be completed before the public presentation?
+
+## Group Responsibilities
+Here each group member gets a section where they, as an individual, detail what they are responsible for in this project. Each group member writes their own Responsibility section. Include the milestones and final deliverable.
+
+Please use Github properly: each individual must make the edits to this file representing their own section of work.
+
+**Additional instructions for teams of three:** 
+* Remember that you must have prior written permission to work in groups of three (specifically, an approved `FP3` team declaration submission).
+* The team must nominate a lead. This person is primarily responsible for code integration. This work may be shared, but the team lead has default responsibility.
+* The team lead has full partner implementation responsibilities also.
+* Identify who is team lead.
+
+In the headings below, replace the silly names and GitHub handles with your actual ones.
+
+### Susan Scheme @susanscheme
+will write the....
+
+### Leonard Lambda @lennylambda
+will work on...
+
+### Frank Funktions @frankiefunk 
+Frank is team lead. Additionally, Frank will work on...   

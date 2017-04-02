@@ -1,7 +1,7 @@
 # Virtual Piano
 
 ### Statement
-For this project, we are implementing a virtual piano. The application will be interactive by allowing the users to play using their keyboards. We will also be adding the record/playback function and allowing users to save their play.
+For this project, we are implementing a virtual piano. The application will be interactive by allowing the users to play using their keyboards. Each key will correspond to a set of keys on a piano.
 
 ### Analysis
 Explain what approaches from class you will bring to bear on the project.

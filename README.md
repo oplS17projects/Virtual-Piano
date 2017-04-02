@@ -33,9 +33,9 @@ At the end of this project we will be having a fully functioning application tha
 We will know how successful we are based on whether or not the program actually plays sounds when a certain key is pressed. It will be even more successful if we are able to implement changing which part of the piano keyboard is to be played.
 
 ## Architecture Diagram
-Upload the architecture diagram you made for your slide presentation to your repository, and include it in-line here.
 
-Create several paragraphs of narrative to explain the pieces and how they interoperate.
+![alt text](https://image.ibb.co/cr03bF/Diagram.png "Diagram")
+
 
 ## Schedule
 

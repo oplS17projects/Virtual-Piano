@@ -38,15 +38,6 @@ Upload the architecture diagram you made for your slide presentation to your rep
 Create several paragraphs of narrative to explain the pieces and how they interoperate.
 
 ## Schedule
-Explain how you will go from proposal to finished product. 
-
-There are three deliverable milestones to explicitly define, below.
-
-The nature of deliverables depend on your project, but may include things like processed data ready for import, core algorithms implemented, interface design prototyped, etc. 
-
-You will be expected to turn in code, documentation, and data (as appropriate) at each of these stages.
-
-Write concrete steps for your schedule to move from concept to working system. 
 
 ### First Milestone (Sun Apr 9)
 UI
@@ -54,7 +45,7 @@ UI
 
 ### Second Milestone (Sun Apr 16)
 UI
-  - Align the frequencies to the keys and make sure the application plays the right sound. Highlight each block when a key is being pressed.
+  - Align the frequencies to the keys and make sure the application plays the right note for each key. Highlight the block when a key is being pressed.
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
 What additionally will be completed before the public presentation?
 

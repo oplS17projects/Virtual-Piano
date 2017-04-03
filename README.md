@@ -4,21 +4,15 @@
 For this project, we are implementing a virtual piano. The application will be interactive by allowing the users to play using their keyboards. Each key will correspond to a set of keys on a piano.
 
 ### Analysis
-Explain what approaches from class you will bring to bear on the project.
-
-Be explicit about the techiques from the class that you will use. For example:
-- Will you use data abstraction? How?
-- Will you use recursion? We will use iterative recursion to calculate the frequencies needed.
-- Will you use map/filter/reduce? We will use map to change the contents of a list that holds the frequencies when the user wants to change the scale of they piano keys.
-- Will you use object-orientation? How?
+- Data Abstraction: We will be using list to contain the frequencies and only the objects (keys) can access it
+- Recursion: We will use iterative recursion to calculate the frequencies needed.
+- Map: We will use map to change the frequencies when the user wants to change the scale of they piano keys.
+- Object Orientation: The key will be implemented as an object
 - Will you use functional approaches to processing your data? How?
 - Will you use state-modification approaches? How? (If so, this should be encapsulated within objects. `set!` pretty much should only exist inside an object.)
 - Will you build an expression evaluator, like we did in the symbolic differentatior and the metacircular evaluator?
-- Will you use lazy evaluation approaches?
+- Lazy Evaluation: We will be using the lazy evaluation approach to change the frequencies of the key. The idea is if the user is unsatisfied with how high/low the key sound, he/she can change the frequency to the next set by pressing a button, that way it doesn't get evaluated right away.
 
-The idea here is to identify what ideas from the class you will use in carrying out your project. 
-
-**Your project will be graded, in part, by the extent to which you adopt approaches from the course into your implementation, _and_ your discussion about this.**
 
 ### External Technologies
 The user's keyboard will act as a medium for detecting which key to play. The amount of keys able to be pressed is restricted by hardware.
@@ -46,8 +40,9 @@ UI
 ### Second Milestone (Sun Apr 16)
 UI
   - Align the frequencies to the keys and make sure the application plays the right note for each key. Highlight the block when a key is being pressed.
+  
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
-What additionally will be completed before the public presentation?
+  Align key to new frequencies if users want to change frequencies. 
 
 ## Group Responsibilities
 

@@ -7,10 +7,7 @@ For this project, we are implementing a virtual piano. The application will be i
 - Data Abstraction: We will be using list to contain the frequencies and only the objects (keys) can access it
 - Recursion: We will use iterative recursion to calculate the frequencies needed.
 - Map: We will use map to change the frequencies when the user wants to change the scale of they piano keys.
-- Object Orientation: The key will be implemented as an object
-- Will you use functional approaches to processing your data? How?
-- Will you use state-modification approaches? How? (If so, this should be encapsulated within objects. `set!` pretty much should only exist inside an object.)
-- Will you build an expression evaluator, like we did in the symbolic differentatior and the metacircular evaluator?
+- Object Orientation: The keys will be implemented as objects
 - Lazy Evaluation: We will be using the lazy evaluation approach to change the frequencies of the key. The idea is if the user is unsatisfied with how high/low the key sound, he/she can change the frequency to the next set by pressing a button, that way it doesn't get evaluated right away.
 
 
@@ -34,17 +31,15 @@ We will know how successful we are based on whether or not the program actually 
 ## Schedule
 
 ### First Milestone (Sun Apr 9)
-UI
   - We will have the UI set up and connect each key to their corresponding block.
   - We will store the needed frequencies in a list using map
 
 ### Second Milestone (Sun Apr 16)
-UI
   - Align the frequencies to the keys and make sure the application plays the right note for each key. Highlight the block when a key is being pressed.
   - Adjust the frequencies in the list when the user wants to change the scale by pressing certain buttons
   
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
-  Align key to new frequencies if users want to change frequencies. 
+ - Align key to new frequencies if users want to change frequencies. 
 
 ## Group Responsibilities
 

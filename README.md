@@ -36,10 +36,12 @@ We will know how successful we are based on whether or not the program actually 
 ### First Milestone (Sun Apr 9)
 UI
   - We will have the UI set up and connect each key to their corresponding block.
+  - We will store the needed frequencies in a list using map
 
 ### Second Milestone (Sun Apr 16)
 UI
   - Align the frequencies to the keys and make sure the application plays the right note for each key. Highlight the block when a key is being pressed.
+  - Adjust the frequencies in the list when the user wants to change the scale by pressing certain buttons
   
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
   Align key to new frequencies if users want to change frequencies. 

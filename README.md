@@ -1,7 +1,7 @@
 # Virtual Piano
 
 ### Statement
-For this project, we are implementing a virtual piano. The application will be interactive by allowing the users to play using their keyboards. Each key will correspond to a set of keys on a piano.
+For this project, we are implementing a virtual piano. The application will be interactive by allowing the users to play using their keyboards. Each key will correspond to a set of keys on a piano. This project is interesting because both of us are exposed to the instrument and it would be fun to build one ourselves.
 
 ### Analysis
 - Data Abstraction: We will be using list to contain the frequencies and only the objects (keys) can access it

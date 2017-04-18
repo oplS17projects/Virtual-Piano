@@ -69,36 +69,43 @@ Soprano C: 64, rsound 60|#
 ;---------------------------END SOUND DESIGN---------------------------
 
 ;;---------------------------UI DESIGN---------------------------
+
+; Creating keys on the piano
 (define white-key (rectangle 80 300 "outline" "black"))
 (define black-key (rectangle 50 200 "solid" "black"))
 (define white-key-pressed (square 50 "solid" "black"))
 (define black-key-pressed (rectangle 50 200 "solid" "white"))
+;Draw the layout
 (define PIANO
   (overlay/align/offset "left" "top" (overlay/xy  black-key 100 0 (overlay/xy black-key 140 0 (overlay/xy black-key 80 0
      (overlay/xy black-key 80 0 black-key)))) -50 0 (beside white-key white-key white-key white-key white-key white-key white-key white-key)))
-
+;Define the background
 (define background
   (overlay PIANO
           (rectangle 900 500 "solid" "gray")))
 
-  
+;Event handler when white key is pressed
 (define (white-pressed t)
   (place-image/align white-key-pressed
                      t 330
                      "left" "top"
                      background))
 
+;Event handler when black key is pressed
 (define (black-pressed t)
   (place-image/align black-key-pressed
                      t 100
                      "left" "top"
                      background))
 
+;Event handler when nothing is pressed
 (define (nothing-pressed t)
   (place-image background
                t 0
                (rectangle 900 500 "solid" "gray")))
 
+;Event handler main, check if key is pressed, if it is then start playing the sound
+;and display which key is being pressed
 
 (define (key-press im k)
    (cond [(equal? k "a") (begin
@@ -142,7 +149,7 @@ Soprano C: 64, rsound 60|#
                            (black-pressed 580))]
         [else im]))
 
-
+;Big bang function that controls all
 (big-bang background
           (to-draw show-it)
           (on-key key-press))

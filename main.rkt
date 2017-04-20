@@ -70,7 +70,7 @@ Soprano C: 64, rsound 60|#
 
 ;;---------------------------UI DESIGN---------------------------
 
-; Creating keys on the piano
+; Creating images
 (define white-key (rectangle 80 300 "outline" "black"))
 (define black-key (rectangle 50 200 "solid" "black"))
 (define white-key-pressed (square 50 "solid" "black"))
@@ -85,54 +85,56 @@ Soprano C: 64, rsound 60|#
 (define lower-pressed (rectangle 75 30 "solid" "red"))
 
 
-;Draw the layout
+;Design the PIANO
 (define PIANO
   (overlay/align/offset "left" "top" (overlay/xy  black-key 100 0 (overlay/xy black-key 140 0 (overlay/xy black-key 80 0
      (overlay/xy black-key 80 0 black-key)))) -50 0 (beside white-key white-key white-key white-key white-key white-key white-key white-key)))
-;Define the background
+
+
+;Drawing background with PIANO
 (define background
   (overlay (overlay/offset PIANO 450 0 (overlay/offset higher 0 100 lower))
            (rectangle 1000 500 "solid" "gray")))
 
-;Event handler when white key is pressed
+;When white key is pressed
 (define (white-pressed t)
   (place-image/align white-key-pressed
                      t 330
                      "left" "top"
                      background))
 
-;Event handler when black key is pressed
+;When black key is pressed
 (define (black-pressed t)
   (place-image/align black-key-pressed
                      t 100
                      "left" "top"
                      background))
 
-;Event handler when nothing is pressed
+;When nothing is pressed
 (define (nothing-pressed t)
   (place-image background
                t 0
                (rectangle 900 500 "solid" "gray")))
 
-;Draw image when user wants to go to higher note
+;When going to higher note
 (define (add-frequency t)
   (place-image higher-pressed
                t 211
                background))
 
-;Draw image when user wants to go to lower note
+;When going to lower note
 (define (lower-frequency t)
   (place-image lower-pressed
                t 311
                background))
 
-;Event handler main, check if key is pressed, if it is then start playing the sound
-;and display which key is being pressed
+;Event handler when key is not pressed, return to the original state. Work-in-progress
 (define (key-release t)
    (place-image background
                0 0
                (rectangle 900 500 "solid" "gray")))
 
+;Main event handler, check for key pressed, then perform to the corresponding function
 (define (key-press im k)
    (cond [(equal? k "a") (begin
                            (play (list-ref piano-keys 0))
@@ -179,7 +181,7 @@ Soprano C: 64, rsound 60|#
                            (lower-frequency 866))]
         [else background]))
 
-;Big bang function that controls all
+;Big bang function that controls everything, start universe.
 (big-bang background
           (to-draw show-it)
           (on-key key-press))

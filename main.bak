@@ -75,24 +75,14 @@ Soprano C: 64, rsound 60|#
 (define black-key (rectangle 50 200 "solid" "black"))
 (define white-key-pressed (square 50 "solid" "black"))
 (define black-key-pressed (rectangle 50 200 "solid" "white"))
-(define higher (overlay
-                (rectangle 30 75 "solid" "black")
-                (rectangle 75 30 "solid" "black")))
-(define lower (rectangle 75 30 "solid" "black"))
-(define higher-pressed (overlay
-                (rectangle 30 75 "solid" "red")
-                (rectangle 75 30 "solid" "red")))
-(define lower-pressed (rectangle 75 30 "solid" "red"))
-
-
 ;Draw the layout
 (define PIANO
   (overlay/align/offset "left" "top" (overlay/xy  black-key 100 0 (overlay/xy black-key 140 0 (overlay/xy black-key 80 0
      (overlay/xy black-key 80 0 black-key)))) -50 0 (beside white-key white-key white-key white-key white-key white-key white-key white-key)))
 ;Define the background
 (define background
-  (overlay (overlay/offset PIANO 450 0 (overlay/offset higher 0 100 lower))
-           (rectangle 1000 500 "solid" "gray")))
+  (overlay PIANO
+          (rectangle 900 500 "solid" "gray")))
 
 ;Event handler when white key is pressed
 (define (white-pressed t)
@@ -114,70 +104,50 @@ Soprano C: 64, rsound 60|#
                t 0
                (rectangle 900 500 "solid" "gray")))
 
-;Draw image when user wants to go to higher note
-(define (add-frequency t)
-  (place-image higher-pressed
-               t 211
-               background))
-
-;Draw image when user wants to go to lower note
-(define (lower-frequency t)
-  (place-image lower-pressed
-               t 311
-               background))
-
 ;Event handler main, check if key is pressed, if it is then start playing the sound
 ;and display which key is being pressed
-(define (key-release t)
-   (place-image background
-               0 0
-               (rectangle 900 500 "solid" "gray")))
 
 (define (key-press im k)
    (cond [(equal? k "a") (begin
                            (play (list-ref piano-keys 0))
-                           (white-pressed 116))]
+                           (white-pressed 150))]
          [(equal? k "s") (begin
                            (play (list-ref piano-keys 2))
-                            (white-pressed 196))]
+                            (white-pressed 230))]
          [(equal? k "d") (begin
                            (play (list-ref piano-keys 4))
-                           (white-pressed 276))]
+                           (white-pressed 310))]
          [(equal? k "f") (begin
                            (play (list-ref piano-keys 5))
-                           (white-pressed 356))]
+                           (white-pressed 390))]
          [(equal? k "g") (begin
                            (play (list-ref piano-keys 7))
-                           (white-pressed 431))]
+                           (white-pressed 470))]
          [(equal? k "h") (begin
                            (play (list-ref piano-keys 9))
-                           (white-pressed 511))]
+                           (white-pressed 550))]
          [(equal? k "j") (begin
                            (play (list-ref piano-keys 11))
-                           (white-pressed 591))]
+                           (white-pressed 630))]
          [(equal? k "k") (begin
                            (play (list-ref piano-keys 12))
-                           (white-pressed 671))]
+                           (white-pressed 710))]
          [(equal? k "w") (begin
                            (play (list-ref piano-keys 1))
-                           (black-pressed 146))]
+                           (black-pressed 180))]
          [(equal? k "e") (begin
                            (play (list-ref piano-keys 3))
-                           (black-pressed 246))]
+                           (black-pressed 280))]
          [(equal? k "t") (begin
                            (play (list-ref piano-keys 6))
-                           (black-pressed 386))]
+                           (black-pressed 420))]
          [(equal? k "y") (begin
                            (play (list-ref piano-keys 8))
-                           (black-pressed 466))]
+                           (black-pressed 500))]
          [(equal? k "u") (begin
                            (play (list-ref piano-keys 10))
-                           (black-pressed 546))]
-         [(equal? k "up") (begin
-                           (add-frequency 866))]
-         [(equal? k "down") (begin
-                           (lower-frequency 866))]
-        [else background]))
+                           (black-pressed 580))]
+        [else im]))
 
 ;Big bang function that controls all
 (big-bang background

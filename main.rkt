@@ -137,10 +137,10 @@ Soprano C: 64, rsound 60|#
                background))
 
 ;Event handler when tile is not pressed, return to the original state. Work-in-progress
-(define (key-release t)
+(define (key-release im k)
    (place-image background
-               0 0
-               (rectangle 900 500 "solid" "gray")))
+               500 250
+               background))
 
 ;Main event handler, check for key pressed, then perform to the corresponding function
 (define (key-press im k)
@@ -194,7 +194,8 @@ Soprano C: 64, rsound 60|#
 ;Big bang function that controls everything, start universe.
 (big-bang background
           (to-draw show-it)
-          (on-key key-press))
+          (on-key key-press)
+          (on-release key-release))
 
 ;---------------------------END UI DESIGN---------------------------
 

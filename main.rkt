@@ -52,12 +52,6 @@
         (stop)
         (loop-through (rest keys)))))
 
-;(loop-through piano-keys)
-;(increase-tone)
-;(loop-through piano-keys)
-;since there are no functions that alter piano-tones, we have to
-;empty the list and recreate it with new piano-tones
-
 #| REFERENCE
 To calculate rsound piano-tone number, take key number from
 https://en.wikipedia.org/wiki/Piano_key_frequencies
@@ -176,8 +170,10 @@ Soprano C: 64, rsound 60|#
                            (play (list-ref piano-keys 10))
                            (black-pressed 546))]
          [(equal? k "up") (begin
+                            (increase-tone)
                            (add-frequency 866))]
          [(equal? k "down") (begin
+                              (decrease-tone)
                            (lower-frequency 866))]
         [else background]))
 

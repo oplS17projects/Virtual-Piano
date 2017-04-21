@@ -65,41 +65,55 @@ Soprano C: 64, rsound 60|#
 ;;---------------------------UI DESIGN---------------------------
 
 ; Creating images
-(define white-key (rectangle 80 300 "outline" "black"))
-(define black-key (rectangle 50 200 "solid" "black"))
-(define white-key-pressed (square 50 "solid" "black"))
-(define black-key-pressed (rectangle 50 200 "solid" "white"))
-(define higher (overlay
-                (rectangle 30 75 "solid" "black")
-                (rectangle 75 30 "solid" "black")))
-(define lower (rectangle 75 30 "solid" "black"))
+(define white-tile (rectangle 80 300 "outline" "black"))
+(define black-tile (rectangle 50 200 "solid" "black"))
+(define white-tile-pressed (square 50 "solid" "black"))
+(define black-tile-pressed (rectangle 50 200 "solid" "white"))
+(define higher-note (overlay
+                    (rectangle 30 75 "solid" "black")
+                    (rectangle 75 30 "solid" "black")))
+(define lower-note (rectangle 75 30 "solid" "black"))
 (define higher-pressed (overlay
-                (rectangle 30 75 "solid" "red")
-                (rectangle 75 30 "solid" "red")))
+                       (rectangle 30 75 "solid" "red")
+                       (rectangle 75 30 "solid" "red")))
 (define lower-pressed (rectangle 75 30 "solid" "red"))
+(define pianolist (list white-tile black-tile white-tile-pressed black-tile-pressed))
 
 
 ;Design the PIANO
-(define PIANO
-  (overlay/align/offset "left" "top" (overlay/xy  black-key 100 0 (overlay/xy black-key 140 0 (overlay/xy black-key 80 0
-     (overlay/xy black-key 80 0 black-key)))) -50 0 (beside white-key white-key white-key white-key white-key white-key white-key white-key)))
 
+;Design the layout of black tiles.
+(define draw-black-tiles
+  (overlay/xy  (second pianolist) 100 0
+               (overlay/xy (second pianolist) 140 0
+                           (overlay/xy (second pianolist) 80 0
+                                       (overlay/xy (second pianolist) 80 0
+                                                   (second pianolist))))))
+
+;Design the layout of white tiles.  
+(define draw-white-tiles
+  (beside (first pianolist) (first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)))
+
+;Putting the two together to get an complete piano
+(define PIANO
+  (overlay/align/offset "left" "top" draw-black-tiles -50 0 draw-white-tiles))
 
 ;Drawing background with PIANO
 (define background
-  (overlay (overlay/offset PIANO 450 0 (overlay/offset higher 0 100 lower))
+  (overlay (overlay/offset PIANO 450 0
+                           (overlay/offset higher-note 0 100 lower-note))
            (rectangle 1000 500 "solid" "gray")))
 
-;When white key is pressed
+;When white tile is pressed
 (define (white-pressed t)
-  (place-image/align white-key-pressed
+  (place-image/align (third pianolist)
                      t 330
                      "left" "top"
                      background))
 
-;When black key is pressed
+;When black tile is pressed
 (define (black-pressed t)
-  (place-image/align black-key-pressed
+  (place-image/align (fourth pianolist)
                      t 100
                      "left" "top"
                      background))
@@ -122,7 +136,7 @@ Soprano C: 64, rsound 60|#
                t 311
                background))
 
-;Event handler when key is not pressed, return to the original state. Work-in-progress
+;Event handler when tile is not pressed, return to the original state. Work-in-progress
 (define (key-release t)
    (place-image background
                0 0
@@ -135,7 +149,7 @@ Soprano C: 64, rsound 60|#
                            (white-pressed 116))]
          [(equal? k "s") (begin
                            (play (list-ref piano-keys 2))
-                            (white-pressed 196))]
+                           (white-pressed 196))]
          [(equal? k "d") (begin
                            (play (list-ref piano-keys 4))
                            (white-pressed 276))]
@@ -171,10 +185,10 @@ Soprano C: 64, rsound 60|#
                            (black-pressed 546))]
          [(equal? k "up") (begin
                             (increase-tone)
-                           (add-frequency 866))]
+                            (add-frequency 866))]
          [(equal? k "down") (begin
                               (decrease-tone)
-                           (lower-frequency 866))]
+                              (lower-frequency 866))]
         [else background]))
 
 ;Big bang function that controls everything, start universe.

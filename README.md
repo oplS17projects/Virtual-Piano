@@ -76,6 +76,21 @@ We know how successful the application is based on whether or not the program ac
 	  (to-draw show-it)
 	  (on-key key-press)
 	  (on-release key-release))
+	
+	;When white tile is pressed
+	(define (white-pressed t)
+		(place-image/align (third pianolist)
+			t 330
+            "left" "top"
+            background))
+	
+	;When black tile is pressed
+	(define (black-pressed t)
+		(place-image/align (fourth pianolist)
+			t 100
+			"left" "top"
+			background))
+
 	  
 	;Main event handler, check for key pressed, then perform to the corresponding function
 	(define (key-press im k)
@@ -125,12 +140,8 @@ We know how successful the application is based on whether or not the program ac
   - Aligned key to new frequencies if users want to change frequencies. 
 
 ```racket
-	[(equal? k "up") (begin
-						(increase-tone)
-						(add-frequency 866))]
-	[(equal? k "down") (begin
-						(decrease-tone)
-						(lower-frequency 866))]
+	[(equal? k "up") (begin (increase-tone) (add-frequency 866))]
+	[(equal? k "down") (begin (decrease-tone) (lower-frequency 866))]
 ```  
 ## Group Responsibilities
 

@@ -20,9 +20,6 @@ N/A
 ### Deliverable and Demonstration
 At the end of this project we had a fully functioning application that accurately performs like a piano. This piano is interactive by allowing the users to use their keyboard to communicate with the User Interface and play music. At the live demo we will demonstrate by playing a song.
 
-The UI to be displayed:
-![keyboard](piano.PNG)
-
 ### Evaluation of Results
 We know how successful the application is based on whether or not the program actually plays sounds when a certain key is pressed. It is even more successful that we were able to implement changing which part of the piano keyboard is to be played.
 
@@ -52,9 +49,10 @@ We know how successful the application is based on whether or not the program ac
 				(overlay/xy (second pianolist) 80 0
 				   (second pianolist))))))
 
-   ;Design the layout of white tiles.  
+	;Design the layout of white tiles.  
 	(define draw-white-tiles
-	  (beside (first pianolist) (first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)))
+	  (beside (first pianolist) (first pianolist)(first pianolist)(first pianolist)
+		(first pianolist)(first pianolist)(first pianolist)(first pianolist)))
 
 	;Putting the two together to get an complete piano
 	(define PIANO
@@ -70,13 +68,102 @@ We know how successful the application is based on whether or not the program ac
 				(create-tones (+ start 1) end))
 				(set! piano-keys (append piano-keys '() ))))
 ```
+
 ### Second Milestone (Sun Apr 16)
   - Aligned the frequencies to the keys and make sure the application plays the right note for each key. Highlight the block when a key is being pressed.
-  - Adjusted the frequencies in the list when the user wants to change the scale by pressing certain buttons
   
+  ```racket
+	
+	;Big bang function that controls everything, start universe.
+	(big-bang background
+	  (to-draw show-it)
+	  (on-key key-press)
+	  (on-release key-release))
+	  
+	;Main event handler, check for key pressed, then perform to the corresponding function
+	(define (key-press im k)
+	(cond [(equal? k "a") (begin
+                           (play (list-ref piano-keys 0))
+                           (white-pressed 116))]
+		 [(equal? k "s") (begin
+                           (play (list-ref piano-keys 2))
+                           (white-pressed 196))]
+         [(equal? k "d") (begin
+                           (play (list-ref piano-keys 4))
+                           (white-pressed 276))]
+         [(equal? k "f") (begin
+                           (play (list-ref piano-keys 5))
+                           (white-pressed 356))]
+         [(equal? k "g") (begin
+                           (play (list-ref piano-keys 7))
+                           (white-pressed 431))]
+         [(equal? k "h") (begin
+                           (play (list-ref piano-keys 9))
+                           (white-pressed 511))]
+         [(equal? k "j") (begin
+                           (play (list-ref piano-keys 11))
+                           (white-pressed 591))]
+         [(equal? k "k") (begin
+                           (play (list-ref piano-keys 12))
+                           (white-pressed 671))]
+         [(equal? k "w") (begin
+                           (play (list-ref piano-keys 1))
+                           (black-pressed 146))]
+         [(equal? k "e") (begin
+                           (play (list-ref piano-keys 3))
+                           (black-pressed 246))]
+         [(equal? k "t") (begin
+                           (play (list-ref piano-keys 6))
+                           (black-pressed 386))]
+         [(equal? k "y") (begin
+                           (play (list-ref piano-keys 8))
+                           (black-pressed 466))]
+         [(equal? k "u") (begin
+                           (play (list-ref piano-keys 10))
+                           (black-pressed 546))]
+         [(equal? k "up") (begin
+                            (increase-tone)
+                            (add-frequency 866))]
+         [(equal? k "down") (begin
+                              (decrease-tone)
+                              (lower-frequency 866))]
+        [else background]))
+	```
+  - Adjusted the frequencies in the list when the user wants to change the scale by pressing certain buttons
+  ```racket
+	(define (increase-tone)
+		(if (> (+  end-tone 12) 84)
+		0
+		(begin
+			(set! start-tone (+ start-tone 12))
+			(set! end-tone (+ end-tone 12))
+			(set! piano-keys (list))
+			(create-tones start-tone end-tone)
+		)
+	))
+
+	(define (decrease-tone)
+		(if (< (- start-tone 12) 12)
+		0
+		(begin
+			(set! start-tone (- start-tone 12))
+			(set! end-tone (- end-tone 12))
+			(set! piano-keys (list))
+			(create-tones start-tone end-tone)
+        )
+	))
+```
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
   - Aligned key to new frequencies if users want to change frequencies. 
 
+  ```racket
+		[(equal? k "up") (begin
+							(increase-tone)
+                            (add-frequency 866))]
+	 [(equal? k "down") (begin
+							(decrease-tone)
+							(lower-frequency 866))]
+```  
 ## Group Responsibilities
 
 ### Minh Nguyen @minhngu 

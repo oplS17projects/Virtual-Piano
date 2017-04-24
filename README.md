@@ -14,9 +14,6 @@ For this project, we implemented a virtual piano. The application is interactive
 ### External Technologies
 The user's keyboard acts as a medium for detecting which key to play. The amount of keys able to be pressed is restricted by hardware.
 
-### Data Sets or other Source Materials
-N/A
-
 ### Deliverable and Demonstration
 At the end of this project we had a fully functioning application that accurately performs like a piano. This piano is interactive by allowing the users to use their keyboard to communicate with the User Interface and play music. At the live demo we will demonstrate by playing a song.
 
@@ -97,40 +94,11 @@ We know how successful the application is based on whether or not the program ac
          [(equal? k "g") (begin
                            (play (list-ref piano-keys 7))
                            (white-pressed 431))]
-         [(equal? k "h") (begin
-                           (play (list-ref piano-keys 9))
-                           (white-pressed 511))]
-         [(equal? k "j") (begin
-                           (play (list-ref piano-keys 11))
-                           (white-pressed 591))]
-         [(equal? k "k") (begin
-                           (play (list-ref piano-keys 12))
-                           (white-pressed 671))]
-         [(equal? k "w") (begin
-                           (play (list-ref piano-keys 1))
-                           (black-pressed 146))]
-         [(equal? k "e") (begin
-                           (play (list-ref piano-keys 3))
-                           (black-pressed 246))]
-         [(equal? k "t") (begin
-                           (play (list-ref piano-keys 6))
-                           (black-pressed 386))]
-         [(equal? k "y") (begin
-                           (play (list-ref piano-keys 8))
-                           (black-pressed 466))]
-         [(equal? k "u") (begin
-                           (play (list-ref piano-keys 10))
-                           (black-pressed 546))]
-         [(equal? k "up") (begin
-                            (increase-tone)
-                            (add-frequency 866))]
-         [(equal? k "down") (begin
-                              (decrease-tone)
-                              (lower-frequency 866))]
-        [else background]))
+         ...
+		 
 	```
   - Adjusted the frequencies in the list when the user wants to change the scale by pressing certain buttons
-  ```racket
+	```racket
 	(define (increase-tone)
 		(if (> (+  end-tone 12) 84)
 		0
@@ -152,18 +120,18 @@ We know how successful the application is based on whether or not the program ac
 			(create-tones start-tone end-tone)
         )
 	))
-```
+	```
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
   - Aligned key to new frequencies if users want to change frequencies. 
 
   ```racket
-		[(equal? k "up") (begin
-							(increase-tone)
-                            (add-frequency 866))]
-	 [(equal? k "down") (begin
-							(decrease-tone)
-							(lower-frequency 866))]
-```  
+	[(equal? k "up") (begin
+						(increase-tone)
+						(add-frequency 866))]
+	[(equal? k "down") (begin
+						(decrease-tone)
+						(lower-frequency 866))]
+	```  
 ## Group Responsibilities
 
 ### Minh Nguyen @minhngu 

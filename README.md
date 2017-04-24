@@ -35,8 +35,41 @@ We know how successful the application is based on whether or not the program ac
 
 ### First Milestone (Sun Apr 9)
   - We had the UI set up and connect each key to their corresponding block.
-  - We stored the needed frequencies in a list using map
+```racket
+	; Create image blocks
+	(define white-tile (rectangle 80 300 "outline" "black"))
+	(define black-tile (rectangle 50 200 "solid" "black"))
+	(define white-tile-pressed (square 50 "solid" "black"))
+	(define black-tile-pressed (rectangle 50 200 "solid" "white"))
+	(define pianolist (list white-tile black-tile white-tile-pressed black-tile-pressed))
 
+	; Design the Piano 
+	;Design the layout of black tiles.
+	(define draw-black-tiles
+	  (overlay/xy  (second pianolist) 100 0
+		(overlay/xy (second pianolist) 140 0
+			(overlay/xy (second pianolist) 80 0
+				(overlay/xy (second pianolist) 80 0
+				   (second pianolist))))))
+
+   ;Design the layout of white tiles.  
+	(define draw-white-tiles
+	  (beside (first pianolist) (first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)))
+
+	;Putting the two together to get an complete piano
+	(define PIANO
+		(overlay/align/offset "left" "top" draw-black-tiles -50 0 draw-white-tiles))
+```
+
+  - We stored the needed frequencies in a list using map
+```racket
+	(define (create-tones start end)
+		(if (<= start end)
+			(begin
+				(set! piano-keys (append piano-keys (list (piano-tone start))))
+				(create-tones (+ start 1) end))
+				(set! piano-keys (append piano-keys '() ))))
+```
 ### Second Milestone (Sun Apr 16)
   - Aligned the frequencies to the keys and make sure the application plays the right note for each key. Highlight the block when a key is being pressed.
   - Adjusted the frequencies in the list when the user wants to change the scale by pressing certain buttons

@@ -17,6 +17,9 @@ The user's keyboard acts as a medium for detecting which key to play. The amount
 ### Deliverable and Demonstration
 At the end of this project we had a fully functioning application that accurately performs like a piano. This piano is interactive by allowing the users to use their keyboard to communicate with the User Interface and play music. At the live demo we will demonstrate by playing a song.
 
+Here's what the UI looks like
+![keyboard](piano.PNG)
+
 ### Evaluation of Results
 We know how successful the application is based on whether or not the program actually plays sounds when a certain key is pressed. It is even more successful that we were able to implement changing which part of the piano keyboard is to be played.
 

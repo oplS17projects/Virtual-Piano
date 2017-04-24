@@ -69,7 +69,7 @@ We know how successful the application is based on whether or not the program ac
 ### Second Milestone (Sun Apr 16)
   - Aligned the frequencies to the keys and make sure the application plays the right note for each key. Highlight the block when a key is being pressed.
   
-  ```racket
+```racket
 	
 	;Big bang function that controls everything, start universe.
 	(big-bang background
@@ -96,9 +96,9 @@ We know how successful the application is based on whether or not the program ac
                            (white-pressed 431))]
          ...
 		 
-	```
+```
   - Adjusted the frequencies in the list when the user wants to change the scale by pressing certain buttons
-	```racket
+```racket
 	(define (increase-tone)
 		(if (> (+  end-tone 12) 84)
 		0
@@ -120,18 +120,18 @@ We know how successful the application is based on whether or not the program ac
 			(create-tones start-tone end-tone)
         )
 	))
-	```
+```
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
   - Aligned key to new frequencies if users want to change frequencies. 
 
-  ```racket
+```racket
 	[(equal? k "up") (begin
 						(increase-tone)
 						(add-frequency 866))]
 	[(equal? k "down") (begin
 						(decrease-tone)
 						(lower-frequency 866))]
-	```  
+```  
 ## Group Responsibilities
 
 ### Minh Nguyen @minhngu 

@@ -81,3 +81,68 @@ Whenever an element is needed it will be called via the list but not directly fr
                            (overlay/offset higher-note 0 100 lower-note))
            (rectangle 1000 500 "solid" "gray")))
 ```
+
+
+## 3. Dynamically changing the state of a key/sound with users' inputs
+
+
+The following code run the users inputs from the keys then compare it with characters and if it matches then it will move the block
+to the corresponding key and highlight that key and also play the sound thus creating an interactive UI.
+
+
+```
+(define (key-press im k)
+   (cond [(equal? k "a") (begin
+                           (play (list-ref piano-keys 0))
+                           (white-pressed 116))]
+         [(equal? k "s") (begin
+                           (play (list-ref piano-keys 2))
+                           (white-pressed 196))]
+    .......
+         [(equal? k "up") (begin
+                            (increase-tone)
+                            (add-frequency 866))]
+         [(equal? k "down") (begin
+                              (decrease-tone)
+                              (lower-frequency 866))]
+         [else background]))
+
+```
+
+When the user inputs match the characters it will jump to these functions depending which key is being pressed.
+The logic is simple, if a white tile is pressed, it will highlight that key by moving a colored block on top of that key.
+
+```
+;When white tile is pressed
+(define (white-pressed t)
+  (place-image/align (third pianolist)
+                     t 330
+                     "left" "top"
+                     background))
+
+;When black tile is pressed
+(define (black-pressed t)
+  (place-image/align (fourth pianolist)
+                     t 100
+                     "left" "top"
+                     background))
+
+;When nothing is pressed
+(define (nothing-pressed t)
+  (place-image background
+               t 0
+               (rectangle 900 500 "solid" "gray")))
+
+;When going to higher note
+(define (add-frequency t)
+  (place-image higher-pressed
+               t 211
+               background))
+
+;When going to lower note
+(define (lower-frequency t)
+  (place-image lower-pressed
+               t 311
+               background))
+```
+

@@ -6,11 +6,8 @@
 # Overview
 This set of code helps design an interactive user interface for the virtual piano. It is important
 because it is responsible for the interactions between users and the application and between the
-application and the UI thus dynamically updating the UI as the users give inputs.
+application and the UI thus dynamically updating the UI as the users give their inputs.
 
-The image files are abstracted by being stored in a list. Whenever an element is called it will be called
-from a list not directly the varible names. Also the the design of the piano was done using the recursive
-method.
 
 **Authorship note:** All of the code described here was written by myself.
 
@@ -28,9 +25,10 @@ The code uses two libraries:
 
 # Key Code Excerpts
 
-## 1. Image files are stored in a list for ease of access and neater code
+## 1. Image files are stored in a list for ease of access
 
-The following code defines the image files needed to design the UI and then put them in a list.
+The following code defines the image files that are needed to design the UI. The image files are abstracted by being stored in a list.
+Whenever an element is needed it will be called via the list but not directly from the variable names.
 
 ```
 ; Creating images
@@ -48,18 +46,19 @@ The following code defines the image files needed to design the UI and then put 
 (define lower-pressed (rectangle 75 30 "solid" "red"))
 
 
-;Use a list to contain the image keys, that way it is easier to more neat to call a draw function
-(define pianolist (list white-tile black-tile white-tile-pressed black-tile-pressed higher-note lower-note higher-pressed lower-pressed))
+;Use a list to contain the image keys
+(define pianolist (list white-tile black-tile white-tile-pressed black-tile-pressed 
+                        higher-note lower-note higher-pressed lower-pressed))
 
  ```
 
- ## 2. Step-by-step UI design
+ ## 2. Easy to follow UI design
  
- The UI was designed followed step-by-step fashion so that anyone could read and be able to understand
- what it does
+ The UI was designed followed a step-by-step fashion so that anyone could read and be able to understand
+ what it does. Also note that all elements called were being access via the list but never the elements itself.
  
  ```
- ;Design the layout of black tiles.
+ ;Draw the black tiles.
 (define draw-black-tiles
   (overlay/xy  (second pianolist) 100 0
                (overlay/xy (second pianolist) 140 0
@@ -67,15 +66,16 @@ The following code defines the image files needed to design the UI and then put 
                                        (overlay/xy (second pianolist) 80 0
                                                    (second pianolist))))))
 
-;Design the layout of white tiles.  
+;Draw the white tiles.  
 (define draw-white-tiles
-  (beside (first pianolist) (first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)(first pianolist)))
+  (beside (first pianolist) (first pianolist)(first pianolist)(first pianolist)
+            (first pianolist)(first pianolist)(first pianolist)(first pianolist)))
 
-;Putting the two together to get an complete piano
+;Putting the two together to get an complete piano layout
 (define PIANO
   (overlay/align/offset "left" "top" draw-black-tiles -50 0 draw-white-tiles))
 
-;Drawing background with PIANO
+;Put the completed piano on a background
 (define background
   (overlay (overlay/offset PIANO 450 0
                            (overlay/offset higher-note 0 100 lower-note))

@@ -7,7 +7,6 @@ For this project, we implemented a virtual piano. The application is interactive
 - Data Abstraction: We used lists to contain the frequencies and images. Only the objects (keys) can access it
 - Recursion: We used iterative recursion to calculate the frequencies needed.
 - Map: We used map to change the frequencies when the user wants to change the scale of they piano keys.
-- Object Orientation: The keys were implemented as objects
 - Lazy Evaluation: We used the lazy evaluation approach to change the frequencies of the key. The idea is if the user is unsatisfied with how high/low the key sound, he/she can change the frequency to the next set by pressing a button, that way it doesn't get evaluated right away.
 
 
@@ -70,7 +69,7 @@ We know how successful the application is based on whether or not the program ac
 ```
 
 ### Second Milestone (Sun Apr 16)
-  - Aligned the frequencies to the keys and make sure the application plays the right note for each key. Highlight the block when a key is being pressed.
+  -  We aligned the frequencies to the keys and make sure the application plays the right note for each key. A block is highlighted when a key is pressed.
   
 ```racket
 	
@@ -115,7 +114,7 @@ We know how successful the application is based on whether or not the program ac
          ...
 		 
 ```
-  - Adjusted the frequencies in the list when the user wants to change the scale by pressing certain buttons
+  - We adjusted the frequencies in the list when the user wants to change the scale by pressing certain buttons
 ```racket
 	(define (increase-tone)
 		(if (> (+  end-tone 12) 84)
@@ -140,7 +139,7 @@ We know how successful the application is based on whether or not the program ac
 	))
 ```
 ### Public Presentation (Mon Apr 24, Wed Apr 26, or Fri Apr 28 [your date to be determined later])
-  - Aligned key to new frequencies if users want to change frequencies. 
+  - We aligned the keys to new frequencies when users want to change the key set. 
 
 ```racket
 	[(equal? k "up") (begin (increase-tone) (add-frequency 866))]

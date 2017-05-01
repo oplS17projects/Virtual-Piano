@@ -53,7 +53,7 @@ The following code changes which sounds are played by the system by either incre
         (set! piano-keys (create-tones start-tone end-tone '() )))))
 ```
 
-### 3. 
+### 3. Dynamically changing the state of a key/sound with users' inputs
 The following code detects key presses from the user's keyboards and performs actions based on which key is pressed. Certain letter keys will play piano sounds, while the up/down arrows will increase/decrease the octaves at which the sounds are played.
 ```
 (define (key-press im k)

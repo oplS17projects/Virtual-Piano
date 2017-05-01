@@ -25,10 +25,10 @@ The code uses two libraries:
 
 # Key Code Excerpts
 
-## 1. Image files are stored in a list for ease of access
+## 1. Image files are stored in a list for data abstraction
 
 The following code defines the image files that are needed to design the UI. The image files are abstracted by being stored in a list.
-Whenever an element is needed it will be called via the list but not directly from the variable names.
+Whenever an element is needed it will be called from the list instead of directly from the variable names.
 
 ```
 ; Creating images
@@ -55,7 +55,7 @@ Whenever an element is needed it will be called via the list but not directly fr
  ## 2. Easy to follow UI design
  
  The UI was designed followed a step-by-step fashion so that anyone could read and be able to understand
- what it does. Also note that all elements called were being access via the list but never the elements itself.
+ what it does. Also note that all elements called were being access from the list but never the elements itself.
  
  ```
  ;Draw the black tiles.
@@ -85,9 +85,8 @@ Whenever an element is needed it will be called via the list but not directly fr
 
 ## 3. Dynamically changing the state of a key/sound with users' inputs
 
-
-The following code run the users inputs from the keys then compare it with characters and if it matches then it will move the block
-to the corresponding key and highlight that key and also play the sound thus creating an interactive UI.
+The following code compares the user inputs with characters and if it matches then it will move the block
+to the corresponding coordinate to highlight that key and also play the sound thus creating an interactive UI.
 
 
 ```
@@ -109,8 +108,7 @@ to the corresponding key and highlight that key and also play the sound thus cre
 
 ```
 
-When the user inputs match the characters it will jump to these functions depending which key is being pressed.
-The logic is simple, if a white tile is pressed, it will highlight that key by moving a colored block on top of that key.
+When the user inputs match the characters it will jump to these functions to help aligning the highlight depending which key is being pressed. The logic is simple, if a white tile is pressed, it will highlight that key by moving a colored block to on top of that key.
 
 ```
 ;When white tile is pressed
